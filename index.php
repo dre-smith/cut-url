@@ -1,20 +1,20 @@
 <?php
-	include "includes/header.php";
-
 	if (isset($_GET['url']) && !empty($_GET['url'])) {
 		$url = strtolower(trim($_GET['url']));
 
-		$link = db_query("SELECT * FROM `links` WHERE `short_link` = '$url';")->fetch();
+		$link = get_link_info($url);
 
 		if (empty($link)) {
-			echo "Такая ссылка не найдена";
+			header('Location: 404.php');
 			die;
 		}
 
-		db_exec("UPDATE `links` SET `views` = `views` + 1 WHERE `short_link` = '$url';");
+		update_views($url);
 		header('Location: ' . $link['long_link']);
 		die;
 	}
+
+	include "includes/header.php";
 ?>
 
 <main class="container">
@@ -30,7 +30,7 @@
 	</div>
 	<div class="row mt-5">
 		<div class="col">
-			<h2 class="text-center">Ссылок в системе: 200</h2>
+			<h2 class="text-center">Ссылок в системе: <?php echo $links_count; ?></h2>
 		</div>
 	</div>
 	<div class="row mt-5">
