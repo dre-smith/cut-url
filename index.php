@@ -3,12 +3,18 @@
 
 	if (isset($_GET['url']) && !empty($_GET['url'])) {
 		$url = strtolower(trim($_GET['url']));
-		
-	} else {
 
+		$link = db_query("SELECT * FROM `links` WHERE `short_link` = '$url';")->fetch();
+
+		if (empty($link)) {
+			echo "Такая ссылка не найдена";
+			die;
+		}
+
+		db_exec("UPDATE `links` SET `views` = `views` + 1 WHERE `short_link` = '$url';");
+		header('Location: ' . $link['long_link']);
+		die;
 	}
-		//echo $_GET['url']; else echo 'url is empty';
-	
 ?>
 
 <main class="container">

@@ -37,4 +37,3 @@
 			</div>
 		</nav>
 	</header>
-	<?php var_dump($users_count);
