@@ -1,4 +1,4 @@
-<?php include "includes/header_404.php"; ?>
+<?php include_once "includes/header_404.php"; ?>
 
 <main class="container">
 	<div class="row mt-5">
@@ -9,4 +9,4 @@
 	</div>
 </main>
 
-<?php include "includes/footer.php"; ?>
+<?php include_once "includes/footer.php"; ?>

@@ -1,6 +1,6 @@
 <?php
 
-include "includes/header.php";
+include_once "includes/header.php";
 
 if (isset($_SESSION['user']['id'])) header('Location: /profile.php');
 
@@ -58,4 +58,4 @@ if (isset($_POST['login']) && !empty($_POST['login']) && isset($_POST['pass']) &
 </div>
 </main>
 
-<?php include "includes/footer.php"; ?>
+<?php include_once "includes/footer.php"; ?>

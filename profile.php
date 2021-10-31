@@ -75,4 +75,4 @@ if (isset($_SESSION['success']) && !empty($_SESSION['success'])) {
 	</div>
 </div>
 
-<?php include "includes/footer_profile.php"; ?>
+<?php include_once "includes/footer_profile.php"; ?>
