@@ -113,3 +113,9 @@ function get_user_links($user_id) {
     if (empty($user_id)) return [];
     return db_query("SELECT * FROM `links` WHERE `user_id` = $user_id;")->fetchAll();
 }
+
+function delete_link($id) {
+    if (empty($id)) return false;
+    return db_query("DELETE FROM `links` WHERE `id` = $id", true);
+}
+
