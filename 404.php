@@ -1,4 +1,5 @@
 <?php include "includes/header_404.php"; ?>
+
 <main class="container">
 	<div class="row mt-5">
 		<div class="col">
@@ -7,4 +8,5 @@
 		</div>
 	</div>
 </main>
+
 <?php include "includes/footer.php"; ?>

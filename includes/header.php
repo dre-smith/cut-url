@@ -1,10 +1,13 @@
 <?php
-    include "includes/functions.php";
 
-	$users_count = get_users_count();
-	$links_count = get_links_count();
-	$views_count = get_views_count();
+include_once "includes/functions.php";
+
+$users_count = get_users_count();
+$links_count = get_links_count();
+$views_count = get_views_count();
+
 ?>
+
 <!doctype html>
 <html lang="ru">
 <head>
@@ -36,11 +39,11 @@
 					</ul>
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<?php if (isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])) { ?>
-								<a href="<?php echo get_url('includes/logout.php'); ?>" class="btn btn-primary">Выйти</a>
-							<?php } else { ?>
-								<a href="<?php echo get_url('login.php'); ?>" class="btn btn-primary">Войти</a>
-							<?php } ?>
+						<?php if (isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])) { ?>
+							<a href="<?php echo get_url('includes/logout.php'); ?>" class="btn btn-primary">Выйти</a>
+						<?php } else { ?>
+							<a href="<?php echo get_url('login.php'); ?>" class="btn btn-primary">Войти</a>
+						<?php } ?>
 						</li>
 					</ul>
 				</div>

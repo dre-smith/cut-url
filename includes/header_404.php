@@ -1,6 +1,5 @@
-<?php
-    include "includes/functions.php";
-?>
+<?php include "includes/functions.php"; ?>
+
 <!doctype html>
 <html lang="ru">
 <head>

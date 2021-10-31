@@ -1,31 +1,32 @@
-<?php 
-	include "includes/header_profile.php";
+<?php
 
-	if (!isset($_SESSION['user']['id'])) header('Location: /');
+include_once "includes/header_profile.php";
 
-	$links = get_user_links($_SESSION['user']['id']);
+if (!isset($_SESSION['user']['id'])) header('Location: /');
 
-	$error = '';
-	if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
-		$error = $_SESSION['error'];
-		$_SESSION['error'] = '';
-	}
+$links = get_user_links($_SESSION['user']['id']);
 
-	$success = '';
-	if (isset($_SESSION['success']) && !empty($_SESSION['success'])) {
-		$success = $_SESSION['success'];
-		$_SESSION['success'] = '';
-	}
+$error = '';
+if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+	$error = $_SESSION['error'];
+	$_SESSION['error'] = '';
+}
+
+$success = '';
+if (isset($_SESSION['success']) && !empty($_SESSION['success'])) {
+	$success = $_SESSION['success'];
+	$_SESSION['success'] = '';
+}
+
 ?>
+
 <main class="container">
-	
 	<?php if (!empty($success)) { ?>
 	<div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
 		<?php echo $success; ?>
 		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 	</div>
 	<?php } ?>
-
 	<?php if (!empty($error)) { ?>
 	<div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
 		<?php echo $error; ?>
@@ -52,7 +53,7 @@
 					<td><?php echo $link['views']; ?></td>
 					<td>
 						<a href="#" class="btn btn-primary btn-sm copy-btn" title="Скопировать в буфер" data-clipboard-text="<?php echo get_url($link['short_link']); ?>"><i class="bi bi-files"></i></a>
-						<a href="<?php echo get_url('includes/edit.php?id=' . $link['id']); ?>" class="btn btn-warning btn-sm" title="Редактировать"><i class="bi bi-pencil"></i></a>
+						<a href="<?php echo get_url('includes/edit.php?user_id=' . $_SESSION['user']['id'] . '&id=' . $link['id']); ?>" class="btn btn-warning btn-sm" title="Редактировать"><i class="bi bi-pencil"></i></a>
 						<a href="<?php echo get_url('includes/delete.php?id=' . $link['id']); ?>" class="btn btn-danger btn-sm" title="Удалить"><i class="bi bi-trash"></i></a>
 					</td>
 				</tr>
@@ -73,4 +74,5 @@
 		</div>
 	</div>
 </div>
+
 <?php include "includes/footer_profile.php"; ?>
