@@ -108,3 +108,8 @@ function login($auth_data) {
 		die;
     }
 }
+
+function get_user_links($user_id) {
+    if (empty($user_id)) return [];
+    return db_query("SELECT * FROM `links` WHERE `user_id` = $user_id;")->fetchAll();
+}
